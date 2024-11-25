@@ -1,0 +1,195 @@
+@use "./mixins" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: hsl(96, 99%, 40%);
+  --primary-color-hover: hsl(96, 99%, 36%);
+  --light-green: rgba(241, 250, 235, 1);
+  --text-color: rgba(27, 31, 24, 1);
+  --outer-padding: 2rem;
+  --inner-padding: 2rem;
+  --inner-container-width: 120rem;
+  --outer-container-width: 140rem;
+
+  @include breakpoint(mobile) {
+    --inner-padding: 1.6rem;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+
+  @include breakpoint(mobile) {
+    font-size: 10px;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--tt-norms);
+  color: var(--text-color);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  overscroll-behavior: none;
+  overflow-anchor: none;
+}
+
+body.modal-open {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+  background-color: transparent;
+  display: block;
+}
+
+textarea {
+  resize: none;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 20rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  outline-offset: -2px;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  outline: none;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  width: auto;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  transition: color 0.2s, text-decoration-color 0.2s;
+  &:link,
+  &:visited {
+    color: inherit;
+  }
+}
+
+svg {
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+picture,
+source {
+  display: contents;
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  color: white;
+  background-color: var(--primary-color);
+  -webkit-text-fill-color: white;
+}
+
+.page-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.outer-container {
+  padding: 0 var(--outer-padding);
+  width: 100%;
+  margin: 0 auto;
+  max-width: calc(var(--outer-container-width) + var(--outer-padding) * 2);
+
+  @include breakpoint(mobile) {
+    padding: 0;
+  }
+}
+.inner-container {
+  padding: 0 var(--inner-padding);
+  width: 100%;
+  margin: 0 auto;
+  max-width: calc(var(--inner-container-width) + var(--inner-padding) * 2);
+}

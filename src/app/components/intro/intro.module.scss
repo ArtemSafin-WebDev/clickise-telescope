@@ -1,0 +1,117 @@
+@use "../../mixins" as *;
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  padding-top: 23rem;
+  margin-bottom: 18rem;
+  position: relative;
+  z-index: 1;
+
+  @include breakpoint(mobile) {
+    padding-top: 16rem;
+    margin-bottom: 12rem;
+  }
+}
+
+.illustration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 130rem;
+  max-width: none;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+  @include breakpoint(mobile) {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+
+  @include breakpoint(mobile) {
+    gap: 2.6rem;
+  }
+}
+
+.heading {
+  font-size: 8.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.258rem;
+
+  @include breakpoint(mobile) {
+    font-size: 4.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.144rem;
+  }
+}
+
+.text {
+  max-width: 90rem;
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.064rem;
+  color: #9c9a9a;
+  font-family: var(--euclid-circular-a);
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 2.7rem;
+    height: 3.0446rem;
+    vertical-align: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/intro-decor.svg");
+
+    @include breakpoint(mobile) {
+      width: 1.3302rem;
+      height: 1.5rem;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: -0.04rem;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.callbackBtn {
+  display: none;
+
+  @include breakpoint(mobile) {
+    display: block;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.2rem;
+    letter-spacing: -0.036rem;
+    padding: 2rem 3.4rem;
+    border-radius: 1.8rem;
+    color: white;
+    background-color: var(--primary-color);
+    text-align: center;
+    align-self: flex-start;
+    &:link,
+    &:visited {
+      color: white;
+    }
+  }
+}

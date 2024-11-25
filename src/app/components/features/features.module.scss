@@ -1,0 +1,185 @@
+@use "../../mixins" as *;
+
+.features {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 10rem;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 2rem;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 6;
+  &::after {
+    content: "";
+    margin-top: 4.3rem;
+    width: 12.5rem;
+    height: 9.4rem;
+    margin-left: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/curved-arrow.svg");
+    margin-right: 6rem;
+
+    @include breakpoint(mobile) {
+      display: none;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.heading {
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.108rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: -0.072rem;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 2rem;
+  grid-column: 6 / -1;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpointMF(small-tablet) {
+    &:nth-child(odd):last-child {
+      grid-column: 1 / -1;
+      .card {
+        background: rgba(79, 192, 2, 0.08);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 1.6rem;
+        grid-template-areas: "icon heading" "text text";
+        align-items: center;
+        .icon {
+          grid-area: icon;
+        }
+
+        .cardTitle {
+          grid-area: heading;
+        }
+
+        .cardText {
+          grid-area: text;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(mobile) {
+    &:nth-child(odd):last-child {
+      .card {
+        background: rgba(79, 192, 2, 0.08);
+      }
+    }
+  }
+}
+
+.card {
+  padding: 2rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  border-radius: 2rem;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1.6rem;
+
+  @include breakpoint(mobile) {
+    padding: 2rem;
+    border-radius: 2rem;
+    display: grid;
+    grid-gap: 1.2rem;
+    grid-row-gap: 1.6rem;
+    grid-template-columns: 2.4rem 1fr;
+    grid-template-areas: "icon title" "text text";
+  }
+}
+
+.icon {
+  width: 3.6rem;
+  height: 3.6rem;
+  object-fit: contain;
+
+  @include breakpoint(mobile) {
+    width: 2.4rem;
+    height: 2.4rem;
+    grid-area: icon;
+  }
+}
+
+.cardTitle {
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.8rem; /* 127.273% */
+  letter-spacing: -0.022rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.4rem; /* 120% */
+    letter-spacing: -0.02rem;
+    grid-area: title;
+  }
+}
+
+.cardText {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.2rem;
+  letter-spacing: -0.016rem;
+  color: rgba(#353131, 0.7);
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: -0.016rem;
+    grid-area: text;
+  }
+}

@@ -1,0 +1,82 @@
+@use "../../mixins" as *;
+
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 3rem 0;
+
+  @include breakpoint(mobile) {
+    padding: 4.1rem 0;
+  }
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.clickiseLogo {
+  width: 11rem;
+  height: auto;
+  flex-shrink: 0;
+
+  @include breakpoint(mobile) {
+    width: 10.2rem;
+  }
+}
+
+.x {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.tgBoosterLogo {
+  width: 12rem;
+  height: auto;
+
+  @include breakpoint(mobile) {
+    width: 11.1rem;
+  }
+}
+
+.callbackBtn {
+  display: block;
+  text-align: center;
+  padding: 2rem 3.4rem;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+  color: white;
+  border-radius: 2rem;
+  background: var(--primary-color);
+  transition: color 0.2s, background-color 0.2s;
+  flex-shrink: 0;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: var(--primary-color-hover);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    display: none;
+  }
+  &:link,
+  &:visited {
+    color: white;
+  }
+}

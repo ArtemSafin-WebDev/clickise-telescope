@@ -1,0 +1,378 @@
+@use "../../mixins" as *;
+
+.footerWrapper {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: var(--light-green);
+  border-radius: 4rem 4rem 0rem 0rem;
+
+  @include breakpoint(mobile) {
+    padding-top: 3rem;
+    padding-bottom: 3.6rem;
+    border-radius: 2.8rem 2.8rem 0rem 0rem;
+  }
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 2rem;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  grid-column: 1 / 3;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+
+  @include breakpoint(mobile) {
+    gap: 0.2rem;
+    margin-bottom: 3rem;
+  }
+}
+.logoImage {
+  width: 11rem;
+  height: auto;
+}
+
+.logoText {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.6rem;
+  letter-spacing: -0.028rem;
+  color: rgba(#1b1f18, 0.6);
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.6rem;
+    letter-spacing: -0.028rem;
+  }
+}
+
+.requisites {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  letter-spacing: -0.02em;
+  color: rgba(#1b1f18, 0.6);
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: -0.032rem;
+    order: 40;
+  }
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  grid-column: 3 / 6;
+  padding-left: 2.4rem;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.nav {
+  display: block;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 3.6rem;
+  }
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  @include breakpoint(mobile) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 1.4rem;
+  }
+}
+
+.navListItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.navLink {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.2rem;
+    letter-spacing: -0.036rem;
+  }
+}
+
+.policy {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: -0.032rem;
+  color: rgba(#1b1f18, 0.6);
+  &:link,
+  &:visited {
+    color: rgba(#1b1f18, 0.6);
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: -0.032rem;
+    margin-bottom: 2rem;
+    order: 30;
+    br {
+      display: none;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: #1b1f18;
+    }
+  }
+}
+
+.contactsCol {
+  grid-column: 6 / 9;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 3.6rem;
+  }
+}
+
+.contactsTitle {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.072rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.06rem;
+  }
+}
+
+.contactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  @include breakpoint(mobile) {
+  }
+}
+
+.contactsListItem {
+  display: block;
+}
+
+.contactsLink {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: -0.04rem;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: -0.04rem;
+    gap: 0.8rem;
+  }
+}
+
+.contactsLinkIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.contract {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: -0.032rem;
+  color: rgba(#1b1f18, 0.6);
+  &:link,
+  &:visited {
+    color: rgba(#1b1f18, 0.6);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: #1b1f18;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    order: 35;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: -0.032rem;
+  }
+}
+
+.consultationCol {
+  grid-column: 9 / -1;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 6rem;
+  }
+}
+
+.consultationTitle {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -0.072rem;
+  margin-bottom: 1.6rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.06rem;
+  }
+  b {
+    font-weight: inherit;
+    color: var(--primary-color);
+  }
+}
+
+.consultationText {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: -0.032rem;
+  color: rgba(#1b1f18, 0.8);
+  margin-bottom: 3.5rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: -0.032rem;
+    margin-bottom: 1.4rem;
+  }
+}
+
+.consultationBtn {
+  display: inline-block;
+  padding: 1.6rem 2.4rem;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+  border-radius: 1.8rem;
+  background: var(--primary-color);
+  transition: background-color 0.2s, color 0.2s;
+  color: white;
+  align-self: flex-start;
+
+  &:link,
+  &:visited {
+    color: white;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: var(--primary-color-hover);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    padding: 1.7rem 3.6rem;
+    border-radius: 1.8rem;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.2rem;
+    letter-spacing: -0.036rem;
+    align-self: stretch;
+    justify-content: center;
+    text-align: center;
+  }
+}

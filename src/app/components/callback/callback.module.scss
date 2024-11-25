@@ -1,0 +1,314 @@
+@use "../../mixins" as *;
+
+.callback {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7.3rem;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 7.6rem;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: 2rem;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4.6rem;
+  grid-column: 1 / 7;
+  padding-right: 4rem;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.heading {
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 4.2rem;
+  letter-spacing: -0.108rem;
+
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: -0.072rem;
+  }
+}
+
+.rightCol {
+  grid-column: 7 / -1;
+  margin-left: -4rem;
+
+  @include breakpoint(mobile) {
+    display: contents;
+  }
+}
+
+.wrapper {
+  border-radius: 2.4rem;
+  border: 0.1rem solid #ebeaea;
+  background: #fdfdfd;
+  box-shadow: -0.4rem -0.4rem 6rem 0rem rgba(82, 202, 1, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 2rem;
+
+  @include breakpoint(mobile) {
+    border-radius: 2.4rem;
+    border: 1px solid #ebeaea;
+    background: #fdfdfd;
+    box-shadow: -0.4rem -0.4rem 6rem 0rem rgba(82, 202, 1, 0.1);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+
+  @include breakpoint(mobile) {
+    gap: 1.6rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.field {
+  display: block;
+}
+
+.textInput {
+  padding: 0 2rem;
+  height: 5.6rem;
+  border-radius: 2rem;
+  border: 1px solid #ebeaea;
+  background: #fff;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: -0.032rem;
+  color: var(--text-color);
+  transition: border-color 0.2s, color 0.2s;
+  font-family: var(--euclid-circular-a);
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2.4rem;
+}
+
+.radioGroupTitle {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.4rem;
+  letter-spacing: -0.02rem;
+}
+
+.radioItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.radioBox {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radioBullet {
+  border-radius: 20rem;
+  border: 1px solid #ebeaea;
+  background: #fff;
+  transition: border-color 0.2s, background-color 0.2s;
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: grid;
+  place-items: center;
+
+  @include breakpoint(mobile) {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  &::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background-color: #fff;
+
+    @include breakpoint(mobile) {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+  }
+}
+
+.radioInput {
+  display: none;
+}
+.radioInput:checked ~ .radioBullet {
+  border: 1px solid #4fbb06;
+  background: #52ca01;
+  &::before {
+    opacity: 1;
+  }
+}
+
+.radioText {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.2rem;
+    letter-spacing: -0.032rem;
+  }
+}
+
+.submitBtn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+  color: white;
+  padding: 2rem 2.4rem;
+  border-radius: 2rem;
+  background: var(--primary-color);
+  margin-bottom: 1.6rem;
+  transition: background-color 0.2s, color 0.2s;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: var(--primary-color-hover);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.policy {
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: -0.014rem;
+  color: rgba(53, 49, 49, 0.5);
+
+  @include breakpoint(mobile) {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: -0.014rem;
+  }
+
+  a {
+    color: var(--primary-color);
+    &:link,
+    &:visited {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.client {
+  display: block;
+}
+
+.clientCheckbox {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 4rem;
+}
+
+.clientCheckboxInput {
+  display: none;
+}
+
+.clientCheckboxText {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+}
+
+.clientCheckboxMark {
+  width: 2.8rem;
+  height: 2.8rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  border: 1px solid #ebeaea;
+  background: #fff;
+  transition: border-color 0.2s, background-color 0.2s;
+
+  svg {
+    fill: white;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
+
+.clientCheckboxInput:checked ~ .clientCheckboxMark {
+  border-color: #4fbb06;
+  background: #52ca01;
+
+  svg {
+    opacity: 1;
+  }
+}
