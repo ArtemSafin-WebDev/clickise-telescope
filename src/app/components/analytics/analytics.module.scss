@@ -78,28 +78,3 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-gap: 2rem;
 }
-
-.chart {
-  display: flex;
-  flex-direction: column;
-  border-radius: 2.4rem;
-  border: 1px solid #ebeaea;
-  background: #fff;
-  padding: 2rem;
-}
-
-.chartTitle {
-  font-size: 2rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2.4rem; /* 120% */
-  letter-spacing: -0.02rem;
-  margin-bottom: 1.6rem;
-  font-family: var(--euclid-circular-a);
-}
-
-.chartWrapper {
-  border-radius: 1.6rem;
-  border: 1px solid #ebeaea;
-  overflow: hidden;
-}

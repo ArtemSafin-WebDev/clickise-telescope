@@ -1,0 +1,32 @@
+@use "../../mixins" as *;
+
+.chart {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: subgrid;
+  border-radius: 2.4rem;
+  border: 1px solid #ebeaea;
+  background: #fff;
+  padding: 2rem;
+  grid-row: span 2;
+}
+
+.chartTitle {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.4rem; /* 120% */
+  letter-spacing: -0.02rem;
+  margin-bottom: 1.6rem;
+  font-family: var(--euclid-circular-a);
+  grid-row: 1 / 2;
+}
+
+.chartWrapper {
+  border-radius: 1.6rem;
+  border: 1px solid #ebeaea;
+  overflow: hidden;
+  grid-row: 2 / 3;
+  padding: 1rem;
+  position: relative;
+}

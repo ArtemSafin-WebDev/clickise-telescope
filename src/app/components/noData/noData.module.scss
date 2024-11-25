@@ -1,0 +1,18 @@
+.noData {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0.2rem 0.2rem 1.6rem 0rem rgba(170, 170, 170, 0.3);
+  padding: 2rem;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: -0.072rem;
+  font-family: var(--euclid-circular-a);
+  margin-top: -3rem;
+}

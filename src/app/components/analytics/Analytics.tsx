@@ -2,44 +2,11 @@
 
 import { useEffect, useState } from "react";
 import styles from "./analytics.module.scss";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  ChartData,
-  ChartOptions,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-const monthNames = [
-  "янв",
-  "фев",
-  "мар",
-  "апр",
-  "май",
-  "июн",
-  "июл",
-  "авг",
-  "сен",
-  "окт",
-  "ноя",
-  "дек",
-];
+import { monthNames } from "@/app/constants";
+import CPMChart from "../cpmChart/cpmChart";
+import CPSChart from "../cpsChart/cpsChart";
+import AdsChart from "../adsChart/adsChart";
+import CPCChart from "../cpcChart/cpcChart";
 
 type AnalyticsData = {
   month: number;
@@ -55,80 +22,23 @@ interface AnalyticsProps {}
 
 function Analytics(props: AnalyticsProps) {
   const {} = props;
-  const [data, setData] = useState<Array<AnalyticsData>>([]);
+  const [data, setData] = useState<AnalyticsData[]>([]);
 
-  const cpm = data.map((item) => item.cpm);
   const months = data.map((item) => monthNames[item.month - 1]);
 
-  const options: ChartOptions<"line"> = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: true,
-        position: "bottom",
-        labels: {
-          borderRadius: 2,
-          useBorderRadius: true,
-          boxWidth: 14,
-          boxHeight: 14,
-          font: {
-            weight: "bold",
-            size: 12,
-          },
-          color: "#1B1F18",
-        },
-      },
-      tooltip: {
-        borderColor: "green",
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
-        bodyColor: "black",
-        titleColor: "black",
-      },
-    },
+  // ADS
+  const adsPerCabinet = data.map((item) => item.avg_ads_per_cabinet);
+  const spentPerCabinet = data.map((item) => item.avg_spent_per_cabinet);
 
-    scales: {
-      x: {
-        grid: {
-          color: "#EBEAEA",
-          lineWidth: 1,
-          drawTicks: false,
-        },
-        border: {
-          color: "#EBEAEA",
-          display: false,
-          dash: [6, 6],
-          dashOffset: 6,
-        },
-      },
-      y: {
-        grid: {
-          color: "#EBEAEA",
-          drawTicks: false,
-        },
-        border: {
-          color: "#EBEAEA",
-          display: false,
-          dash: [6, 6],
-        },
-      },
-    },
-  };
+  // CPM
+  const cpm = data.map((item) => item.cpm);
+  const hasCpm = !cpm.every((item) => item === 0);
+  // CPS
+  const cps = data.map((item) => item.cps);
 
-  const cpmData: ChartData<"line"> = {
-    labels: months,
-    datasets: [
-      {
-        label: "CPM",
-        data: cpm,
-        borderColor: "#2380FF",
-        tension: 0.4,
-        pointStyle: "circle",
-        pointHoverRadius: 6,
-        backgroundColor: "#2380FF",
-        fill: "red",
-      },
-    ],
-  };
+  // CPC
+  const cpc = data.map((item) => item.cpc);
+  const hasCpc = !cpc.every((item) => item === 0);
 
   console.log("Months", months, cpm);
 
@@ -190,19 +100,14 @@ function Analytics(props: AnalyticsProps) {
               </div>
               <div className={styles.main}>
                 <div className={styles.charts}>
-                  <div className={styles.chart} key={"CPM"}>
-                    <h3 className={styles.chartTitle}>
-                      Средний CPM (1 000 показов)
-                    </h3>
-                    <div className={styles.chartWrapper}>
-                      <Line
-                        options={options}
-                        data={cpmData}
-                        width={100}
-                        height={80}
-                      />
-                    </div>
-                  </div>
+                  <AdsChart
+                    months={months}
+                    spentPerCabinet={spentPerCabinet}
+                    adsPerCabinet={adsPerCabinet}
+                  />
+                  {hasCpm ? <CPMChart data={cpm} months={months} /> : null}
+                  <CPSChart data={cps} months={months} />
+                  <CPCChart data={cpc} months={months} />
                 </div>
               </div>
             </div>
