@@ -230,6 +230,12 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-gap: 2rem;
+  transition: opacity 0.4s;
+
+  &.loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
   @include breakpoint(mobile) {
     display: flex;
     flex-direction: column;

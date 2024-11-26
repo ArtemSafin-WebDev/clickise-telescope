@@ -15,6 +15,7 @@ import CPCChart from "../cpcChart/cpcChart";
 import CheckmarkIcon from "@/app/icons/checkmark";
 import Select from "../select/Select";
 import SpentChart from "../spentChart/spentChart";
+import CTRChart from "../ctrChart/ctrChart";
 
 type AnalyticsData = {
   month: number;
@@ -59,6 +60,7 @@ function Analytics(props: AnalyticsProps) {
   const cpm = data.map((item) => item.cpm);
   const cps = data.map((item) => item.cps);
   const cpc = data.map((item) => item.cpc);
+  const ctr = data.map((item) => item.ctr);
 
   console.log("Months", months, cpm);
 
@@ -223,13 +225,18 @@ function Analytics(props: AnalyticsProps) {
                   </div>
                 </div>
                 <div className={styles.main}>
-                  <div className={styles.charts}>
+                  <div
+                    className={`${styles.charts} ${
+                      loading ? styles.loading : ""
+                    }`}
+                  >
                     <AdsChart
                       months={months}
                       spentPerCabinet={spentPerCabinet}
                       adsPerCabinet={adsPerCabinet}
                     />
                     <SpentChart months={months} data={spentPerCabinet} />
+                    <CTRChart data={ctr} months={months} />
                     <CPMChart data={cpm} months={months} />
                     <CPSChart data={cps} months={months} />
                     <CPCChart data={cpc} months={months} />
