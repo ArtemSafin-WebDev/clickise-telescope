@@ -3,7 +3,7 @@
 import styles from "./select.module.scss";
 import { useRef, useState, useCallback } from "react";
 import { useOnClickOutside } from "usehooks-ts";
-import { AnimatePresence, motion } from "framer-motion";
+
 import OptionCheckedIcon from "@/app/icons/optionchecked";
 import DownarrowIcon from "@/app/icons/downarrow";
 
@@ -44,39 +44,31 @@ function Select({ options, placeholder, onOptionSelect }: SelectProps) {
           <DownarrowIcon />
         </span>
       </button>
-      <AnimatePresence>
-        {toggle && (
-          <motion.div
-            className={styles.dropdown}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div className={styles.dropdownInner}>
-              <div className={styles.scrollContainer}>
-                <div className={styles.optionsList}>
-                  {options.map((option) => (
-                    <button
-                      key={option.value}
-                      className={`${styles.option} ${
-                        option === activeOption ? styles.selected : ""
-                      }`}
-                      onClick={() => {
-                        setActiveOption(option);
-                        onOptionSelect(option);
-                        setToggle(false);
-                      }}
-                    >
-                      <span className={styles.optionText}>{option.title}</span>
-                      <OptionCheckedIcon />
-                    </button>
-                  ))}
-                </div>
-              </div>
+
+      <div className={`${styles.dropdown} ${toggle ? styles.active : ""}`}>
+        <div className={styles.dropdownInner}>
+          <div className={styles.scrollContainer}>
+            <div className={styles.optionsList}>
+              {options.map((option) => (
+                <button
+                  key={option.value}
+                  className={`${styles.option} ${
+                    option === activeOption ? styles.selected : ""
+                  }`}
+                  onClick={() => {
+                    setActiveOption(option);
+                    onOptionSelect(option);
+                    setToggle(false);
+                  }}
+                >
+                  <span className={styles.optionText}>{option.title}</span>
+                  <OptionCheckedIcon />
+                </button>
+              ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
