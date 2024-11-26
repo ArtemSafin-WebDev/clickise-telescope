@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.scss";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const ttNorms = localFont({
   src: [
