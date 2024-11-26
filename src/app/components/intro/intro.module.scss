@@ -47,7 +47,7 @@
   font-weight: 500;
   line-height: 110%;
   letter-spacing: -0.258rem;
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 4.8rem;
     font-style: normal;

@@ -33,7 +33,7 @@ html {
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
   scroll-padding-top: 1rem;
-
+  font-size: clamp(2px, 0.7vw, 125px);
   @include breakpoint(mobile) {
     font-size: 10px;
   }

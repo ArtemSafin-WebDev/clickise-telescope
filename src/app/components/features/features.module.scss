@@ -54,7 +54,7 @@
   font-weight: 500;
   line-height: 120%;
   letter-spacing: -0.108rem;
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 2.4rem;
     font-style: normal;
@@ -155,7 +155,7 @@
   font-weight: 500;
   line-height: 2.8rem; /* 127.273% */
   letter-spacing: -0.022rem;
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 2rem;
     font-style: normal;
@@ -173,7 +173,7 @@
   line-height: 2.2rem;
   letter-spacing: -0.016rem;
   color: rgba(#353131, 0.7);
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 1.6rem;
     font-style: normal;

@@ -1,10 +1,11 @@
+"use client";
+
+import useCallbackModalStore from "@/app/store/useCallbackModalStore";
 import styles from "./footer.module.scss";
 import Image from "next/image";
 
-interface FooterProps {}
-
-function Footer(props: FooterProps) {
-  const {} = props;
+function Footer() {
+  const open = useCallbackModalStore((state) => state.open);
 
   return (
     <footer className={styles.footer}>
@@ -108,9 +109,13 @@ function Footer(props: FooterProps) {
                   Мы с радостью ответим! Оставьте заявку — специалист свяжется с
                   вами в рабочее время.
                 </div>
-                <a href="#" className={styles.consultationBtn}>
+                <button
+                  className={styles.consultationBtn}
+                  type="button"
+                  onClick={() => open()}
+                >
                   Оставить заявку
-                </a>
+                </button>
               </div>
             </div>
           </div>

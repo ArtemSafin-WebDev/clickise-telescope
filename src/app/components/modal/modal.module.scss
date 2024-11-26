@@ -52,6 +52,8 @@
 
   @include breakpoint(mobile) {
     padding: 1.6rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
     border-radius: 2.4rem;
   }
   .modal[open] & {
@@ -83,6 +85,14 @@
   display: grid;
   place-items: center;
   transition: background-color 0.2s;
+  width: 3.4rem;
+  height: 3.4rem;
+  @include breakpoint(mobile) {
+    right: 1.6rem;
+    top: 1.6rem;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 
   svg {
     display: block;

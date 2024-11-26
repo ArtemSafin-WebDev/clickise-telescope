@@ -1,10 +1,10 @@
+"use client";
+
+import useCallbackModalStore from "@/app/store/useCallbackModalStore";
 import styles from "./intro.module.scss";
-import Image from "next/image";
 
-interface IntroProps {}
-
-function Intro(props: IntroProps) {
-  const {} = props;
+function Intro() {
+  const open = useCallbackModalStore((state) => state.open);
 
   return (
     <div className={styles.intro}>
@@ -26,9 +26,9 @@ function Intro(props: IntroProps) {
             Мы проанализировали более 3 000 рекламных кампаний, чтобы ваша
             реклама стала эффективнее
           </div>
-          <a href="#" className={styles.callbackBtn}>
+          <button className={styles.callbackBtn} onClick={() => open()}>
             Написать менеджеру
-          </a>
+          </button>
         </div>
       </div>
     </div>

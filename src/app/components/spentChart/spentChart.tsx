@@ -26,16 +26,13 @@ ChartJS.register(
   Legend
 );
 
-interface ADSChartProps {
-  spentPerCabinet: number[];
-  adsPerCabinet: number[];
+interface SpentChartProps {
+  data: number[];
   months: string[];
 }
 
-function AdsChart({ spentPerCabinet, adsPerCabinet, months }: ADSChartProps) {
-  const hasSpentPerCabinet = !spentPerCabinet.every((item) => item === 0);
-  const hasAdsPerCabinet = !adsPerCabinet.every((item) => item === 0);
-  const hasData = hasAdsPerCabinet || hasSpentPerCabinet;
+function SpentChart({ data, months }: SpentChartProps) {
+  const hasData = !data.every((item) => item === 0);
   const options: ChartOptions<"line"> = {
     responsive: true,
     plugins: {
@@ -62,20 +59,6 @@ function AdsChart({ spentPerCabinet, adsPerCabinet, months }: ADSChartProps) {
     },
 
     scales: {
-      B: {
-        type: "linear",
-        position: "right",
-        grid: {
-          color: "#EBEAEA",
-          drawTicks: false,
-          display: false,
-        },
-        border: {
-          color: "#EBEAEA",
-          display: false,
-          dash: [6, 6],
-        },
-      },
       x: {
         grid: {
           color: "#EBEAEA",
@@ -103,38 +86,27 @@ function AdsChart({ spentPerCabinet, adsPerCabinet, months }: ADSChartProps) {
     },
   };
 
-  const adsData: ChartData<"line"> = {
+  const spentData: ChartData<"line"> = {
     labels: months,
     datasets: [
       {
-        label: "Количество объявлений на рекламодателя",
-        data: hasAdsPerCabinet ? adsPerCabinet : [],
-        borderColor: "#52CA01",
-        tension: 0.4,
-        pointStyle: "circle",
-        pointHoverRadius: 6,
-        backgroundColor: "#52CA01",
-        yAxisID: "B",
-      },
-      {
-        label: "Затраты на одно объявление",
-        data: hasSpentPerCabinet ? spentPerCabinet : [],
+        label: "Затраты",
+        data: hasData ? data : [],
         borderColor: "#2380FF",
         tension: 0.4,
         pointStyle: "circle",
         pointHoverRadius: 6,
         backgroundColor: "#2380FF",
-        yAxisID: "y",
       },
     ],
   };
 
   return (
-    <ChartCard title="Количество объявлений на рекламодателя">
-      <Line options={options} data={adsData} width={100} height={80} />
+    <ChartCard title="Средние затраты на рекламодателя">
+      <Line options={options} data={spentData} width={100} height={80} />
       {!hasData ? <NoData /> : null}
     </ChartCard>
   );
 }
 
-export default AdsChart;
+export default SpentChart;

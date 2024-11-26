@@ -1,17 +1,15 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+// import { useEffect, useRef, useState } from "react";
 import styles from "./callbackModal.module.scss";
 import Modal from "../modal/Modal";
+import useCallbackModalStore from "@/app/store/useCallbackModalStore";
 
-interface CallbackModalProps {}
-
-function CallbackModal(props: CallbackModalProps) {
-  const {} = props;
-
-  const [open, setOpen] = useState<boolean>(false);
+function CallbackModal() {
+  const isOpen = useCallbackModalStore((state) => state.isOpen);
+  const close = useCallbackModalStore((state) => state.close);
 
   return (
-    <Modal open={open} onClose={() => setOpen(false)}>
+    <Modal open={isOpen} onClose={() => close()}>
       <div className={styles.callbackModal}>
         <h3 className={styles.heading}>
           Получите индивидуальные условия для запуска рекламы в Telegram Ads

@@ -17,7 +17,7 @@
   top: 50%;
   width: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-60%);
   width: 100vw;
   z-index: -1;
   pointer-events: none;
@@ -62,7 +62,7 @@
   font-weight: 500;
   line-height: 4.2rem;
   letter-spacing: -0.108rem;
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 2.4rem;
     font-style: normal;
@@ -80,7 +80,7 @@
   line-height: 2.8rem;
   letter-spacing: -0.048rem;
   color: #9c9a9a;
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 1.6rem;
     font-style: normal;
@@ -122,7 +122,7 @@
   font-weight: 500;
   line-height: 3.6rem;
   letter-spacing: -0.084rem;
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 2rem;
     font-style: normal;
@@ -199,7 +199,7 @@
   line-height: 2.8rem;
   letter-spacing: -0.02rem;
   grid-area: text;
-
+  font-family: var(--euclid-circular-a);
   @include breakpoint(mobile) {
     font-size: 2rem;
     font-style: normal;

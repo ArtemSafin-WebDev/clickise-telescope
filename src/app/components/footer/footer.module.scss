@@ -172,7 +172,7 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      color: #1b1f18;
+      color: var(--primary-color);
     }
   }
 }
@@ -273,7 +273,7 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      color: #1b1f18;
+      color: var(--primary-color);
     }
   }
 

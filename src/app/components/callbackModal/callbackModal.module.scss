@@ -1,3 +1,5 @@
+@use "../../mixins" as *;
+
 .callbackModal {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,15 @@
   line-height: 4.2rem;
   letter-spacing: -0.108rem;
   margin-bottom: 2rem;
+  font-family: var(--euclid-circular-a);
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.8rem; /* 116.667% */
+    letter-spacing: -0.072rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .text {
@@ -20,6 +31,15 @@
   letter-spacing: -0.036rem;
   color: #9c9a9a;
   margin-bottom: 2.4rem;
+  font-family: var(--euclid-circular-a);
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 125% */
+    letter-spacing: -0.032rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .form {
@@ -33,6 +53,13 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-gap: 1.6rem;
   align-items: flex-start;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
 }
 
 .field {
@@ -55,6 +82,12 @@
   letter-spacing: -0.032rem;
   font-family: var(--euclid-circular-a);
   transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+
+  @include breakpoint(mobile) {
+    border-radius: 1.8rem;
+    border: 1px solid #ebeaea;
+    background: #fff;
+  }
 
   &::placeholder {
     color: #aaa;
@@ -83,5 +116,16 @@
     &:hover {
       background: var(--primary-color-hover);
     }
+  }
+
+  @include breakpoint(mobile) {
+    padding: 1.8rem 0.8rem;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2rem; /* 125% */
+    letter-spacing: -0.032rem;
+    border-radius: 1.8rem;
+    justify-content: center;
   }
 }

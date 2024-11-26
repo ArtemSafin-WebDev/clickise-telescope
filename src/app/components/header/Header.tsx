@@ -1,12 +1,12 @@
+"use client";
+
 import Cross from "@/app/icons/cross";
 import styles from "./header.module.scss";
 import Image from "next/image";
+import useCallbackModalStore from "@/app/store/useCallbackModalStore";
 
-interface HeaderProps {}
-
-function Header(props: HeaderProps) {
-  const {} = props;
-
+function Header() {
+  const open = useCallbackModalStore((state) => state.open);
   return (
     <header className={styles.header}>
       <div className="inner-container">
@@ -30,9 +30,13 @@ function Header(props: HeaderProps) {
               priority
             />
           </div>
-          <a href="#" className={styles.callbackBtn}>
+          <button
+            className={styles.callbackBtn}
+            type="button"
+            onClick={() => open()}
+          >
             Написать менеджеру
-          </a>
+          </button>
         </div>
       </div>
     </header>

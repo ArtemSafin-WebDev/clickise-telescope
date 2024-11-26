@@ -9,6 +9,14 @@
   background: #fff;
   padding: 2rem;
   grid-row: span 2;
+  grid-gap: 1.6rem;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 1.6rem;
+  }
 }
 
 .chartTitle {
@@ -17,9 +25,17 @@
   font-weight: 500;
   line-height: 2.4rem; /* 120% */
   letter-spacing: -0.02rem;
-  margin-bottom: 1.6rem;
+
   font-family: var(--euclid-circular-a);
   grid-row: 1 / 2;
+
+  @include breakpoint(mobile) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.4rem; /* 120% */
+    letter-spacing: -0.02rem;
+  }
 }
 
 .chartWrapper {
@@ -29,4 +45,10 @@
   grid-row: 2 / 3;
   padding: 1rem;
   position: relative;
+
+  @include breakpoint(mobile) {
+    border-radius: 1.6rem;
+    border: 1px solid #ebeaea;
+    padding: 0.5rem;
+  }
 }
