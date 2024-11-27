@@ -1,3 +1,4 @@
+import InfoIcon from "@/app/icons/info";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 
@@ -18,7 +19,13 @@ function Benefits(props: BenefitsProps) {
             <h2 className={styles.heading}>
               Запускайте рекламу с&nbsp;Clickise
             </h2>
-            <div className={styles.text}>Минимальное пополнение от 500 €</div>
+            <div className={styles.firstClient}>
+              Первое пополнение с комиссией 10%
+            </div>
+            <div className={styles.text}>
+              <InfoIcon />
+              Минимальное пополнение от 500 €
+            </div>
           </div>
           <Image
             className={styles.image}

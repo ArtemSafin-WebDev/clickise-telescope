@@ -4,6 +4,10 @@
   flex-direction: column;
   position: relative;
   z-index: 15;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 10rem;
+  }
 }
 
 .wrapper {

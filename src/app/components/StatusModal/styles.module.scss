@@ -1,0 +1,75 @@
+@use "../../mixins" as *;
+
+.statusModal {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 4.2rem;
+  letter-spacing: -0.108rem;
+  margin-bottom: 2rem;
+  font-family: var(--euclid-circular-a);
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.8rem; /* 116.667% */
+    letter-spacing: -0.072rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.text {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+  color: #9c9a9a;
+  margin-bottom: 4rem;
+  font-family: var(--euclid-circular-a);
+  @include breakpoint(mobile) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 125% */
+    letter-spacing: -0.032rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  padding: 2rem 4rem;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.2rem;
+  letter-spacing: -0.036rem;
+  border-radius: 2rem;
+  background: #52ca01;
+  color: white;
+  align-self: stretch;
+  transition: background-color 0.2s, color 0.2s;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: var(--primary-color-hover);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    padding: 1.8rem 0.8rem;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2rem; /* 125% */
+    letter-spacing: -0.032rem;
+    border-radius: 1.8rem;
+    justify-content: center;
+  }
+}

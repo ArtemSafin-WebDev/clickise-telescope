@@ -49,10 +49,10 @@
 .textContent {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0;
 
   @include breakpoint(mobile) {
-    gap: 1rem;
+    gap: 0;
   }
 }
 
@@ -63,6 +63,7 @@
   line-height: 4.2rem;
   letter-spacing: -0.108rem;
   font-family: var(--euclid-circular-a);
+  margin-bottom: 2rem;
   @include breakpoint(mobile) {
     font-size: 2.4rem;
     font-style: normal;
@@ -73,14 +74,69 @@
   }
 }
 
-.text {
+.firstClient {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.4rem 2rem;
   font-size: 2.4rem;
   font-style: normal;
+  font-weight: 500;
+  line-height: 2.8rem; /* 116.667% */
+  letter-spacing: -0.072rem;
+  margin-bottom: 1.6rem;
+  border-radius: 1.8rem;
+  border: 0.3rem dashed #2380ff;
+  align-self: flex-start;
+
+  @include breakpoint(mobile) {
+    align-self: stretch;
+    padding: 1rem 1rem;
+    border: 0.2rem dashed #2380ff;
+    font-size: 1.7rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.06rem;
+    border-radius: 1.5rem;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/blue-star.webp");
+    background-size: contain;
+
+    @include breakpoint(mobile) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}
+
+.text {
+  font-size: 1.6rem;
+  font-style: normal;
   font-weight: 400;
-  line-height: 2.8rem;
-  letter-spacing: -0.048rem;
-  color: #9c9a9a;
+  line-height: 2rem; /* 125% */
+  letter-spacing: -0.032rem;
   font-family: var(--euclid-circular-a);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(#353131, 0.7);
+  svg {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+  }
   @include breakpoint(mobile) {
     font-size: 1.6rem;
     font-style: normal;
@@ -141,7 +197,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-gap: 1.6rem;
-    grid-auto-rows: 1fr;
+    grid-auto-rows: minmax(12.4rem, auto);
   }
 }
 
@@ -195,7 +251,7 @@
 .cardTitle {
   font-size: 2rem;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 2.8rem;
   letter-spacing: -0.02rem;
   grid-area: text;
@@ -203,7 +259,7 @@
   @include breakpoint(mobile) {
     font-size: 2rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 2.8rem;
     letter-spacing: -0.036rem;
   }

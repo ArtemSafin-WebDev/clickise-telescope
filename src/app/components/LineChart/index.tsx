@@ -97,7 +97,7 @@ function LineChart({
             } else if (item.datasetIndex === 1 && datasetTwoTooltipName) {
               return `${datasetTwoTooltipName}: ${value.toFixed(2)}${zUnits}`;
             }
-            return item.dataset.label + ": " + item.formattedValue;
+            return item.dataset.label + ": " + value.toFixed(2);
           },
         },
       },
@@ -130,7 +130,7 @@ function LineChart({
         ticks: {
           color: "#706D6D",
           callback: function (value) {
-            return yUnits + value;
+            return yUnits + Number(value).toFixed(2);
           },
         },
       },
@@ -154,7 +154,7 @@ function LineChart({
       ticks: {
         color: "#706D6D",
         callback: function (value) {
-          return zUnits + value;
+          return zUnits + Number(value).toFixed(2);
         },
       },
     };
