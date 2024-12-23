@@ -38,7 +38,8 @@ function CallbackModal() {
           headers={{
             "Content-Type": "application/json",
           }}
-          onSuccess={() => {
+          onSuccess={({ response }) => {
+            console.log(response);
             close();
             openSuccessModal();
             reset();
