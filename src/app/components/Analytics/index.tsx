@@ -22,6 +22,7 @@ type AnalyticsData = {
   ctr: number;
   avg_ads_per_cabinet: number;
   avg_spent_per_cabinet: number;
+  avg_spent_per_ad: number;
 };
 
 type Params = {
@@ -60,6 +61,7 @@ function Analytics(props: AnalyticsProps) {
   const months = data.map((item) => monthNames[item.month - 1]);
   const adsPerCabinet = data.map((item) => item.avg_ads_per_cabinet);
   const spentPerCabinet = data.map((item) => item.avg_spent_per_cabinet);
+  const spentPerAd = data.map((item) => item.avg_spent_per_ad);
   const cpm = data.map((item) => item.cpm);
   const cps = data.map((item) => item.cps);
   const cpc = data.map((item) => item.cpc);
@@ -236,10 +238,10 @@ function Analytics(props: AnalyticsProps) {
                     }`}
                   >
                     <LineChart
-                      datasetOne={spentPerCabinet}
+                      datasetOne={spentPerAd}
                       datasetOneTitle="Затраты на одно объявление"
                       datasetOneTooltipName="Затраты"
-                      yUnits="$"
+                      yUnits="€"
                       xLabels={months}
                       datasetTwo={adsPerCabinet}
                       datasetTwoTitle="Количество объявлений на рекламодателя"
@@ -248,9 +250,9 @@ function Analytics(props: AnalyticsProps) {
                     />
                     <LineChart
                       datasetOne={spentPerCabinet}
-                      datasetOneTitle="Затраты на одно объявление"
+                      datasetOneTitle="Затраты на рекламодателя"
                       datasetOneTooltipName="Затраты"
-                      yUnits="$"
+                      yUnits="€"
                       xLabels={months}
                       title="Средние затраты на рекламодателя"
                     />

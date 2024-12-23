@@ -81,6 +81,12 @@ function BarChart({ data, xLabels, title, dataLabel }: BarChartProps) {
           dash: [6, 6],
           dashOffset: 6,
         },
+        ticks: {
+          callback: function (value) {
+            let monthNumber = Number(value);
+            return xLabels[monthNumber].substring(0, 3);
+          },
+        },
       },
       y: {
         grid: {

@@ -154,9 +154,13 @@
     color: #aaa;
   }
 
-  &:focus {
+  &:not(.textInputInvalid):focus {
     border-color: var(--primary-color);
   }
+}
+
+.textInputInvalid {
+  border-color: red;
 }
 
 .radioGroup {
@@ -261,10 +265,15 @@
   border-radius: 2rem;
   background: var(--primary-color);
   margin-bottom: 1.6rem;
-  transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: default;
+  }
 
   @media (hover: hover) and (pointer: fine) {
-    &:hover {
+    &:not([disabled]):hover {
       background: var(--primary-color-hover);
     }
   }
@@ -352,4 +361,11 @@
   svg {
     opacity: 1;
   }
+}
+
+.validationError {
+  color: red;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-top: 0.5rem;
 }

@@ -23,8 +23,8 @@ function Intro() {
         <div className={styles.content}>
           <h1 className={styles.heading}>Аналитика Telegram Ads</h1>
           <div className={styles.text}>
-            Мы проанализировали более 3 000 рекламных кампаний, чтобы ваша
-            реклама стала эффективнее
+            Мы проанализировали более 1,7 млн. объявлений, чтобы ваша реклама
+            стала эффективнее
           </div>
           <button className={styles.callbackBtn} onClick={() => open()}>
             Написать менеджеру

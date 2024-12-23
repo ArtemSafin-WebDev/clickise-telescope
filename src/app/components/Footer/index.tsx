@@ -56,10 +56,10 @@ function Footer() {
                     </li>
                   </ul>
                 </nav>
-                <a href="#" className={styles.policy}>
+                {/* <a href="#" className={styles.policy}>
                   Политика обработки
                   <br /> персональных данных
-                </a>
+                </a> */}
               </div>
               <div className={styles.contactsCol}>
                 <div className={styles.contacts}>

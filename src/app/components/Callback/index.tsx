@@ -1,10 +1,34 @@
+"use client";
+import useSuccessModalStore from "@/app/store/useSuccessModalStore";
 import CheckmarkIcon from "@/app/icons/checkmark";
+import { useForm, Form } from "react-hook-form";
 import styles from "./styles.module.scss";
 
-interface CallbackProps {}
+enum ForWhoEnum {
+  clients = "clients",
+  business = "business",
+}
 
-function Callback(props: CallbackProps) {
-  const {} = props;
+type Inputs = {
+  name: string;
+  phoneOrLogin: string;
+  isClient?: boolean;
+  forWho?: ForWhoEnum;
+};
+
+function Callback() {
+  const openSuccessModal = useSuccessModalStore((state) => state.open);
+  const {
+    register,
+    control,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<Inputs>({
+    defaultValues: {
+      isClient: true,
+      forWho: ForWhoEnum.clients,
+    },
+  });
 
   return (
     <div className={styles.callback}>
@@ -17,23 +41,54 @@ function Callback(props: CallbackProps) {
           </div>
           <div className={styles.rightCol}>
             <div className={styles.wrapper}>
-              <form action="" method="GET" className={styles.form}>
+              <Form
+                className={styles.form}
+                action={process.env.NEXT_PUBLIC_CALLBACK_URL}
+                onSuccess={() => {
+                  openSuccessModal();
+                  reset();
+                }}
+                headers={{
+                  "Content-Type": "application/json",
+                }}
+                control={control}
+                onError={({ response, error }) => {
+                  console.log("Response", response),
+                    console.log("Error", error);
+                  window.alert("Не удалось отправить форму");
+                }}
+              >
                 <div className={styles.fields}>
                   <div className={styles.field}>
                     <input
                       type="text"
-                      className={styles.textInput}
+                      className={`${styles.textInput} ${
+                        errors.name ? styles.textInputInvalid : ""
+                      }`}
                       placeholder="Имя"
-                      required
+                      {...register("name", { required: true })}
                     />
+                    {errors.name?.type === "required" && (
+                      <div className={styles.validationError}>
+                        {" "}
+                        Обязательное поле
+                      </div>
+                    )}
                   </div>
                   <div className={styles.field}>
                     <input
                       type="text"
-                      className={styles.textInput}
+                      className={`${styles.textInput} ${
+                        errors.phoneOrLogin ? styles.textInputInvalid : ""
+                      }`}
                       placeholder="Телефон или логин в Telegram"
-                      required
+                      {...register("phoneOrLogin", { required: true })}
                     />
+                    {errors.phoneOrLogin?.type === "required" && (
+                      <div className={styles.validationError}>
+                        Обязательное поле
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className={styles.radioGroup}>
@@ -44,10 +99,9 @@ function Callback(props: CallbackProps) {
                     <label className={styles.radioBox}>
                       <input
                         type="radio"
-                        name="forwho"
-                        value="Для клиентов"
+                        value={ForWhoEnum.clients}
                         className={styles.radioInput}
-                        defaultChecked
+                        {...register("forWho")}
                       />
                       <span className={styles.radioBullet}></span>
                       <span className={styles.radioText}>Для клиентов</span>
@@ -55,9 +109,9 @@ function Callback(props: CallbackProps) {
                     <label className={styles.radioBox}>
                       <input
                         type="radio"
-                        name="forwho"
-                        value="Для своего бизнеса"
+                        value={ForWhoEnum.business}
                         className={styles.radioInput}
+                        {...register("forWho")}
                       />
                       <span className={styles.radioBullet}></span>
                       <span className={styles.radioText}>
@@ -70,10 +124,8 @@ function Callback(props: CallbackProps) {
                   <label className={styles.clientCheckbox}>
                     <input
                       type="checkbox"
-                      name="policy"
-                      value="Y"
                       className={styles.clientCheckboxInput}
-                      defaultChecked
+                      {...register("isClient")}
                     />
                     <span className={styles.clientCheckboxMark}>
                       <CheckmarkIcon />
@@ -83,14 +135,18 @@ function Callback(props: CallbackProps) {
                     </span>
                   </label>
                 </div>
-                <button type="submit" className={styles.submitBtn}>
+                <button
+                  type="submit"
+                  className={styles.submitBtn}
+                  disabled={isSubmitting}
+                >
                   Оставить заявку
                 </button>
                 <div className={styles.policy}>
-                  Отправляя заявку, вы <a href="#">соглашаетесь</a> с обработкой
-                  персональных данных
+                  Отправляя заявку, вы соглашаетесь с обработкой персональных
+                  данных
                 </div>
-              </form>
+              </Form>
             </div>
           </div>
         </div>
