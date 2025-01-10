@@ -43,6 +43,7 @@ function Callback() {
             <div className={styles.wrapper}>
               <Form
                 className={styles.form}
+                method="post"
                 action={process.env.NEXT_PUBLIC_CALLBACK_URL}
                 onSuccess={() => {
                   openSuccessModal();

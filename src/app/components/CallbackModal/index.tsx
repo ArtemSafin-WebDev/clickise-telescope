@@ -38,6 +38,7 @@ function CallbackModal() {
           headers={{
             "Content-Type": "application/json",
           }}
+          method="post"
           onSuccess={({ response }) => {
             console.log(response);
             close();
