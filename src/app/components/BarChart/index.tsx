@@ -54,6 +54,7 @@ function BarChart({ data, xLabels, title, dataLabel }: BarChartProps) {
             size: 12,
           },
           color: "#1B1F18",
+          usePointStyle: true,
         },
       },
       tooltip: {
@@ -82,6 +83,7 @@ function BarChart({ data, xLabels, title, dataLabel }: BarChartProps) {
           dashOffset: 6,
         },
         ticks: {
+          color: "#9d9d9d",
           callback: function (value) {
             let monthNumber = Number(value);
             return xLabels[monthNumber].substring(0, 3);
@@ -98,6 +100,9 @@ function BarChart({ data, xLabels, title, dataLabel }: BarChartProps) {
           display: false,
           dash: [6, 6],
         },
+        ticks: {
+          color: "#9d9d9d",
+        },
       },
     },
   };
@@ -109,8 +114,22 @@ function BarChart({ data, xLabels, title, dataLabel }: BarChartProps) {
         label: dataLabel,
         data: hasData ? data : [],
         borderColor: "#52CA01",
-        backgroundColor: "#52CA01",
-        borderRadius: 10,
+
+        // backgroundColor: "#52CA01",
+        borderRadius: 8,
+        backgroundColor: (context) => {
+          const chart = context.chart;
+          const { ctx, chartArea } = chart;
+          if (!chartArea) {
+            return;
+          }
+          const { top, bottom } = chartArea;
+
+          const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+          gradientBg.addColorStop(0, "rgba(82, 202, 1, 1)");
+          gradientBg.addColorStop(1, "rgba(82, 202, 1, 0.3)");
+          return gradientBg;
+        },
       },
     ],
   };

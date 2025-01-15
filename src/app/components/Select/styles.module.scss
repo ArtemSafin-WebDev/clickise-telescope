@@ -94,13 +94,13 @@
     border-radius: 1.8rem;
   }
 
-  &:has(.option:nth-child(4)) {
-    padding-right: 0.5rem;
+  // &:has(.option:nth-child(4)) {
+  //   padding-right: 0.5rem;
 
-    .optionsList {
-      padding-right: 0.5rem;
-    }
-  }
+  //   .optionsList {
+  //     padding-right: 0.5rem;
+  //   }
+  // }
 }
 
 .scrollContainer {

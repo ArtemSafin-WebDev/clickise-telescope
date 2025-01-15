@@ -11,6 +11,7 @@ import {
   Legend,
   ChartData,
   ChartOptions,
+  Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import ChartCard from "../ChartCard";
@@ -23,7 +24,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 interface LinechartProps {
@@ -117,6 +119,8 @@ function LineChart({
           dashOffset: 6,
         },
         ticks: {
+          color: "#9d9d9d",
+
           callback: function (value) {
             let monthNumber = Number(value);
             return xLabels[monthNumber].substring(0, 3);
@@ -124,6 +128,7 @@ function LineChart({
         },
       },
       y: {
+        beginAtZero: true,
         grid: {
           color: "#EBEAEA",
           drawTicks: false,
@@ -134,7 +139,8 @@ function LineChart({
           dash: [6, 6],
         },
         ticks: {
-          color: "#706D6D",
+          color: "#9d9d9d",
+
           callback: function (value) {
             return yUnits + Number(value).toFixed(2);
           },
@@ -158,7 +164,7 @@ function LineChart({
         dash: [6, 6],
       },
       ticks: {
-        color: "#706D6D",
+        color: "#9d9d9d",
         callback: function (value) {
           return zUnits + Number(value).toFixed(2);
         },
@@ -173,12 +179,31 @@ function LineChart({
         label: datasetOneTitle,
         data: hasDatasetOne ? datasetOne : [],
         borderColor: "#2380FF",
-        tension: 0.4,
+        tension: 0.3,
         cubicInterpolationMode: "monotone",
         pointStyle: "circle",
-        pointHoverRadius: 6,
-        backgroundColor: "#2380FF",
+        // backgroundColor: "#2380FF",
         yAxisID: "y",
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointHoverBackgroundColor: "#2380FF",
+        borderWidth: 2,
+
+        fill: true,
+
+        backgroundColor: (context) => {
+          const chart = context.chart;
+          const { ctx, chartArea } = chart;
+          if (!chartArea) {
+            return;
+          }
+          const { top, bottom } = chartArea;
+
+          const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+          gradientBg.addColorStop(0, "rgba(35, 128, 255, 0.3)");
+          gradientBg.addColorStop(1, "rgba(35, 128, 255, 0)");
+          return gradientBg;
+        },
       },
     ],
   };
@@ -187,12 +212,28 @@ function LineChart({
       label: datasetTwoTitle,
       data: datasetTwo && hasDatasetTwo ? datasetTwo : [],
       borderColor: "#52CA01",
-      tension: 0.4,
+      tension: 0.3,
       cubicInterpolationMode: "monotone",
       pointStyle: "circle",
-      pointHoverRadius: 6,
-      backgroundColor: "#52CA01",
       yAxisID: "z",
+      pointRadius: 0,
+      pointHoverRadius: 4,
+      pointHoverBackgroundColor: "#52CA01",
+      borderWidth: 2,
+      fill: true,
+      backgroundColor: (context) => {
+        const chart = context.chart;
+        const { ctx, chartArea } = chart;
+        if (!chartArea) {
+          return;
+        }
+        const { top, bottom } = chartArea;
+
+        const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+        gradientBg.addColorStop(0, "rgba(82, 202, 1, 0.3)");
+        gradientBg.addColorStop(1, "rgba(82, 202, 1, 0)");
+        return gradientBg;
+      },
     });
   }
 

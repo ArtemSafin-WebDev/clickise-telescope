@@ -150,7 +150,7 @@ function Analytics(props: AnalyticsProps) {
                 Аналитика рекламных кампаний по нишам
               </h2>
               <div className={styles.text}>
-                В графиках использованы данные за период март – октябрь 2024 г.
+                В графиках использованы данные за период март – декабрь 2024 г.
               </div>
               <div className={styles.row}>
                 <div className={styles.sidebar}>
