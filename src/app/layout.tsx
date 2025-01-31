@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Script from "next/script";
 
 const ttNorms = localFont({
   src: [
@@ -38,8 +39,8 @@ const euclidCirclularA = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Clickise - Telescope",
-  description: "Clickise - Telescope",
+  title: "Clickise | Бенчмарки за 2024 год",
+  description: "Clickise | Бенчмарки за 2024 год",
 };
 
 export default function RootLayout({
@@ -55,6 +56,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </div>
+        <Script src="/scripts/metrika.js" strategy="afterInteractive" />
       </body>
     </html>
   );

@@ -2,7 +2,6 @@
 
 import Cross from "@/app/icons/cross";
 import styles from "./styles.module.scss";
-import Image from "next/image";
 import useCallbackModalStore from "@/app/store/useCallbackModalStore";
 
 function Header() {
@@ -12,22 +11,17 @@ function Header() {
       <div className="inner-container">
         <div className={styles.row}>
           <div className={styles.logos}>
-            <Image
-              className={styles.clickiseLogo}
+            <img
               src="/logo.svg"
               alt="CLickise logo"
-              width={110}
-              height={28}
-              priority
+              className={styles.clickiseLogo}
             />
             <Cross fill="#353131" />
-            <Image
-              className={styles.tgBoosterLogo}
+
+            <img
               src="/tg-booster-logo.svg"
               alt="TG Booster logo"
-              width={120}
-              height={28}
-              priority
+              className={styles.tgBoosterLogo}
             />
           </div>
           <button

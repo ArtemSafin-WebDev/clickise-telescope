@@ -44,6 +44,8 @@ function CallbackModal() {
             close();
             openSuccessModal();
             reset();
+            //@ts-ignore
+            window?.ym(99721341, "reachGoal", "lead");
           }}
           control={control}
           onError={({ response, error }) => {

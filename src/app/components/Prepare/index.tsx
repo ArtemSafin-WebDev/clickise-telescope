@@ -1,10 +1,6 @@
 import styles from "./styles.module.scss";
-import Image from "next/image";
-interface PrepareProps {}
 
-function Prepare(props: PrepareProps) {
-  const {} = props;
-
+function Prepare() {
   return (
     <div className={styles.prepare}>
       <div className="inner-container">
@@ -18,13 +14,10 @@ function Prepare(props: PrepareProps) {
             <li className={styles.item}>
               <div className={styles.card}>
                 <div className={styles.cardTitleWrapper}>
-                  <Image
-                    className={styles.icon}
+                  <img
                     src="/prepare/1.svg"
                     alt="Card icon"
-                    width={36}
-                    height={36}
-                    priority
+                    className={styles.icon}
                   />
                   <h3 className={styles.cardTitle}>Планируйте кампании</h3>
                 </div>
@@ -36,13 +29,10 @@ function Prepare(props: PrepareProps) {
             <li className={styles.item}>
               <div className={styles.card}>
                 <div className={styles.cardTitleWrapper}>
-                  <Image
-                    className={styles.icon}
+                  <img
                     src="/prepare/2.svg"
                     alt="Card icon"
-                    width={36}
-                    height={36}
-                    priority
+                    className={styles.icon}
                   />
                   <h3 className={styles.cardTitle}>Анализируйте данные</h3>
                 </div>
@@ -54,13 +44,10 @@ function Prepare(props: PrepareProps) {
             <li className={styles.item}>
               <div className={styles.card}>
                 <div className={styles.cardTitleWrapper}>
-                  <Image
-                    className={styles.icon}
+                  <img
                     src="/prepare/3.svg"
                     alt="Card icon"
-                    width={36}
-                    height={36}
-                    priority
+                    className={styles.icon}
                   />
                   <h3 className={styles.cardTitle}>Стройте прогнозы</h3>
                 </div>

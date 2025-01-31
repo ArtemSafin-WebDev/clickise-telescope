@@ -48,6 +48,8 @@ function Callback() {
                 onSuccess={() => {
                   openSuccessModal();
                   reset();
+                  //@ts-ignore
+                  window?.ym(99721341, "reachGoal", "lead");
                 }}
                 headers={{
                   "Content-Type": "application/json",

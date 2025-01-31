@@ -1,6 +1,5 @@
 import InfoIcon from "@/app/icons/info";
 import styles from "./styles.module.scss";
-import Image from "next/image";
 
 interface BenefitsProps {}
 
@@ -27,13 +26,10 @@ function Benefits(props: BenefitsProps) {
               Минимальное пополнение от 500 €
             </div>
           </div>
-          <Image
-            className={styles.image}
+          <img
             src="/benefits.webp"
             alt="Illustration"
-            width={1098}
-            height={683}
-            priority
+            className={styles.image}
           />
         </div>
         <div className={styles.bottom}>

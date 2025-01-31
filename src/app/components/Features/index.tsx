@@ -1,11 +1,6 @@
 import styles from "./styles.module.scss";
-import Image from "next/image";
 
-interface FeaturesProps {}
-
-function Features(props: FeaturesProps) {
-  const {} = props;
-
+function Features() {
   return (
     <div className={styles.features}>
       <div className="inner-container">
@@ -18,13 +13,10 @@ function Features(props: FeaturesProps) {
           <ul className={styles.list}>
             <li className={styles.item}>
               <div className={styles.card}>
-                <Image
-                  className={styles.icon}
+                <img
                   src="features/1.svg"
                   alt="Feature icon"
-                  width={36}
-                  height={36}
-                  priority
+                  className={styles.icon}
                 />
                 <h3 className={styles.cardTitle}>Стройте гипотезы</h3>
                 <div className={styles.cardText}>
@@ -34,13 +26,10 @@ function Features(props: FeaturesProps) {
             </li>
             <li className={styles.item}>
               <div className={styles.card}>
-                <Image
-                  className={styles.icon}
+                <img
                   src="features/2.svg"
                   alt="Feature icon"
-                  width={36}
-                  height={36}
-                  priority
+                  className={styles.icon}
                 />
                 <h3 className={styles.cardTitle}>Проверяйте эффективность</h3>
                 <div className={styles.cardText}>
@@ -50,13 +39,10 @@ function Features(props: FeaturesProps) {
             </li>
             <li className={styles.item}>
               <div className={styles.card}>
-                <Image
-                  className={styles.icon}
+                <img
                   src="features/3.svg"
                   alt="Feature icon"
-                  width={36}
-                  height={36}
-                  priority
+                  className={styles.icon}
                 />
                 <h3 className={styles.cardTitle}>Сравнивайте показатели</h3>
                 <div className={styles.cardText}>

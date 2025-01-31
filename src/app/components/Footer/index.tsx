@@ -2,7 +2,6 @@
 
 import useCallbackModalStore from "@/app/store/useCallbackModalStore";
 import styles from "./styles.module.scss";
-import Image from "next/image";
 
 function Footer() {
   const open = useCallbackModalStore((state) => state.open);
@@ -15,13 +14,10 @@ function Footer() {
             <div className={styles.footerContent}>
               <div className={styles.leftCol}>
                 <a href="#" className={styles.logoWrapper} target="_blank">
-                  <Image
-                    className={styles.logoImage}
+                  <img
                     src="/logo.svg"
                     alt="CLickise logo"
-                    width={110}
-                    height={28}
-                    priority
+                    className={styles.logoImage}
                   />
                   <p className={styles.logoText}>Рекламное агентство</p>
                 </a>
@@ -70,26 +66,20 @@ function Footer() {
                         href="mailto:sales@clickise.org"
                         className={styles.contactsLink}
                       >
-                        <Image
-                          className={styles.contactsLinkIcon}
+                        <img
                           src="/mail.svg"
                           alt="E-mail icon"
-                          width={24}
-                          height={24}
-                          priority
+                          className={styles.contactsLinkIcon}
                         />
                         sales@clickise.org
                       </a>
                     </li>
                     <li className={styles.contactsListItem}>
                       <a href="#" className={styles.contactsLink}>
-                        <Image
-                          className={styles.contactsLinkIcon}
+                        <img
                           src="/tg.svg"
                           alt="Telegram icon"
-                          width={24}
-                          height={24}
-                          priority
+                          className={styles.contactsLinkIcon}
                         />
                         alex_clickise
                       </a>
